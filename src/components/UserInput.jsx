@@ -1,22 +1,6 @@
 import { useState } from "react";
 
-export default function UserInput() {
-  const [userInput, setUserInput] = useState({
-    intitalInvestment: 10000,
-    annualInvestment: 1200,
-    expectedReturn: 6,
-    duration: 10,
-  });
-
-  function handleChange(inputIdentifier, newValue) {
-    setUserInput((prevUserInput) => {
-      return {
-        ...prevUserInput,
-        [inputIdentifier]: newValue,
-      };
-    });
-  }
-
+export default function UserInput({ onChangeInput, userInput }) {
   return (
     <section id="user-input">
       <div className="input-group">
@@ -25,7 +9,9 @@ export default function UserInput() {
           <input
             type="number"
             value={userInput.intitalInvestment}
-            onChange={(event) => handleChange("intitalInvestment", event.target.value)}
+            onChange={(event) =>
+              onChangeInput("intitalInvestment", event.target.value)
+            }
             required
           />
         </p>
@@ -34,7 +20,9 @@ export default function UserInput() {
           <input
             type="number"
             value={userInput.annualInvestment}
-            onChange={(event) => handleChange("annualInvestment", event.target.value)}
+            onChange={(event) =>
+              onChangeInput("annualInvestment", event.target.value)
+            }
             required
           />
         </p>
@@ -45,7 +33,9 @@ export default function UserInput() {
           <input
             type="number"
             value={userInput.expectedReturn}
-            onChange={(event) => handleChange("expectedReturn", event.target.value)}
+            onChange={(event) =>
+              onChangeInput("expectedReturn", event.target.value)
+            }
             required
           />
         </p>
@@ -54,7 +44,9 @@ export default function UserInput() {
           <input
             type="number"
             value={userInput.duration}
-            onChange={(event) => handleChange("duration", event.target.value)}
+            onChange={(event) => 
+                onChangeInput("duration", event.target.value)
+            }
             required
           />
         </p>
