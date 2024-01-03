@@ -5,10 +5,10 @@ export default function UserInput({ onChangeInput, userInput }) {
     <section id="user-input">
       <div className="input-group">
         <p>
-          <label>Intital Investment</label>
+          <label>Initital Investment</label>
           <input
             type="number"
-            value={userInput.intitalInvestment}
+            value={userInput.initialInvestment}
             onChange={(event) =>
               onChangeInput("intitalInvestment", event.target.value)
             }
